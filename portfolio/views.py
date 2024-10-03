@@ -49,3 +49,7 @@ def handleblogs(requests):
     context = {"posts":posts}
     print(context)
     return render(requests,"handleblog.html",context)
+
+
+def resume(request):
+    return render(request,"resume.html")
