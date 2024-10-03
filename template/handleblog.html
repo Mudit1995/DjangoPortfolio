@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static  %}
+{% block title %}
+  Blogs
+{% endblock title %}
+
+
+{% block body %}
+<section id="services" class="services section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Welcome to my Blogs</h2>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+    
+      <div class="row gy-4">
+
+        {% for post in posts reversed %}
+        <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+            <div>
+                <h4 class="title">
+                    <a href="#" class="stretched-link">{{ post.title }}</a>
+                </h4>
+                <p class="description">{{ post.description }}</p>
+                <p>Posted On: <b>{{ post.date }}</b></p>
+    
+                <div class="col-lg-4">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" class="img-fluid" alt="Image">
+                    {% else %}
+                        <img src="/static/images/placeholder.png" class="img-fluid" alt="No image available">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    
+
+
+    </div>
+
+  </section><!--
+{% endblock body %}
+

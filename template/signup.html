@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static  %}
+{% block title %}
+  signup
+{% endblock title %}
+
+
+{% block stylecss %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock stylecss %}
+
+{% block body %}
+    
+
+
+ <div class="container mt-4 p-2" > 
+
+  <div class="row">
+
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h3 class="text-white bg-dark text-center p-3" >Sign up Here</h3>
+
+            {% for messages in messages  %}
+            
+            <div class="alert alert-{{messages.tags}} alert-dismissible fade show" role="alert">
+                <strong>{{messages}}</strong> 
+                <button type="button" class=" btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+
+            <div class="card p-3" >
+            <form action="/AuthApp/signup/" method="post">{% csrf_token %}
+            
+                <div class="form-group p-1">
+                
+                    <h5><span><i class="bi  bi-envelope"></i> Email </span></h5>
+                    <input type="text" name="email" class="form-control"  required />
+                        
+
+                </div>
+
+                <div class="form-group p-1" >
+                
+                    <h5><span><i class="fas  fa-key"></i> password </span></h5>
+                    <input type="password" name="password1" class="form-control"  required />
+                    
+    
+                </div>
+
+                <div class="form-group p-1">
+                
+                    <h5><span><i class="fas  fa-lock"></i> Confirm Password </span></h5>
+                    <input type="password" name="password2" class="form-control "  required />
+                        
+
+                </div>
+
+
+                <div class="d-grid gap-2 p-2">
+                    <button class="btn btn-dark" type="submit">Sign UP</button>
+                    
+                </div>
+                <br>
+                Alreadu User ? <a href="/AuthApp/login/"><i class="bi bi-person navicon"></i> Login</a>
+            
+            </div>
+            </form>
+  
+        
+        </div>
+
+      
+       
+        <div class="col-md-4"></div>
+
+  </div>
+
+
+ </div> 
+
+{% endblock body %}
